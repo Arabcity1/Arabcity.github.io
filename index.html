@@ -3,22 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>عرب سيتي | قوانين السيرفر</title>
+    <title>عرب سيتي | قوانين الرول</title>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
-            --primary-blue: #0a214d; /* أزرق غامق */
-            --accent-blue: #00d4ff;  /* أزرق سماوي للتوهج */
-            --dark-bg: #050a14;
-            --card-bg: #0e1a33;
+            --dark-blue: #050a1a;
+            --royal-blue: #0a214d;
+            --accent-cyan: #00d4ff;
+            --purple-nav: #4b0082;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Cairo', sans-serif; }
         
         body { 
-            background-color: var(--dark-bg); 
+            background-color: var(--dark-blue); 
             color: #ffffff; 
-            line-height: 1.6;
+            line-height: 1.8;
+            overflow-x: hidden;
         }
 
         /* Navbar */
@@ -26,100 +28,88 @@
             display: flex; 
             justify-content: center; 
             align-items: center; 
-            padding: 20px; 
-            background: rgba(10, 33, 77, 0.9); 
-            backdrop-filter: blur(10px); 
+            padding: 15px; 
+            background: rgba(10, 33, 77, 0.95); 
+            backdrop-filter: blur(15px); 
             position: fixed; 
-            width: 100%;
-            top: 0; 
+            width: 90%;
+            max-width: 800px;
+            top: 20px; 
+            left: 50%;
+            transform: translateX(-50%);
             z-index: 1000;
-            border-bottom: 2px solid var(--accent-blue);
+            border-radius: 50px;
+            border: 1px solid var(--accent-cyan);
         }
 
-        .nav-links { display: flex; list-style: none; gap: 30px; }
-        .nav-links a { text-decoration: none; color: white; font-weight: bold; padding: 8px 20px; border-radius: 8px; transition: 0.3s; }
-        .nav-links a.active { background: #4b0082; } /* لون بنفسجي للقائمة النشطة مثل الصورة */
-        .nav-links a:hover { color: var(--accent-blue); }
+        .nav-links { display: flex; list-style: none; gap: 15px; }
+        .nav-links li { cursor: pointer; padding: 8px 25px; border-radius: 25px; font-weight: bold; transition: 0.3s; font-size: 0.9rem; }
+        .nav-links li.active { background: var(--purple-nav); color: white; }
 
-        /* Hero Section */
-        .hero { 
-            padding-top: 150px;
-            padding-bottom: 50px;
-            text-align: center;
-            background: linear-gradient(rgba(5, 10, 20, 0.8), rgba(5, 10, 20, 0.9)), 
-                        url('https://raw.githubusercontent.com/sultan8100/ARABCITY/main/IMG_0223.jpg'); /* تم تصحيح الرابط */
+        /* Section Transition */
+        .section { display: none; min-height: 100vh; padding-top: 140px; }
+        .section.active { display: block; }
+
+        /* Main Page (Info) */
+        .hero {
+            background: linear-gradient(rgba(5, 10, 26, 0.8), rgba(5, 10, 26, 0.9)), 
+                        url('https://raw.githubusercontent.com/sultan8100/ARABCITY/main/IMG_0223.jpg');
             background-size: cover;
             background-position: center;
-            min-height: 400px;
+            background-attachment: fixed;
+            text-align: center;
+            padding: 150px 20px 80px;
         }
 
-        .hero h1 { font-size: 2.5rem; color: #ffffff; margin-bottom: 20px; }
+        .info-box { max-width: 850px; margin: 0 auto; }
+        .info-box h1 { font-size: 3rem; color: #fff; margin-bottom: 25px; font-weight: 900; }
+        .info-box p { font-size: 1.1rem; color: #e0e0e0; margin-bottom: 40px; text-align: justify; background: rgba(0, 0, 0, 0.5); padding: 30px; border-radius: 20px; border: 1px solid rgba(0, 212, 255, 0.2); }
 
-        /* Rules Container */
-        .rules-container {
-            max-width: 900px;
-            margin: 40px auto;
-            padding: 0 20px;
-        }
+        /* Buttons Style */
+        .btn-container { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; }
+        .btn { padding: 12px 35px; border-radius: 30px; text-decoration: none; font-weight: 900; display: flex; align-items: center; gap: 10px; transition: 0.3s; border: none; cursor: pointer; color: white; }
+        .btn-discord { background: #5865F2; }
+        .btn-youtube { background: #ff0000; }
+        .btn:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.4); }
 
-        .rule-card {
-            background-color: var(--primary-blue);
-            margin-bottom: 15px;
-            border-radius: 50px; /* زوايا دائرية جداً مثل الصورة */
-            overflow: hidden;
-            transition: 0.3s;
-            border: 1px solid rgba(0, 212, 255, 0.1);
-        }
-
-        .rule-header {
+        /* Rules Page Style */
+        .rules-page { text-align: center; padding-bottom: 50px; }
+        .rules-wrapper { max-width: 900px; margin: 0 auto; padding: 0 20px; }
+        
+        .role-btn {
+            width: 100%;
+            background: var(--royal-blue);
+            color: white;
             padding: 20px 40px;
+            border-radius: 50px;
+            font-size: 1.4rem;
+            font-weight: 900;
+            border: 2px solid var(--accent-cyan);
+            cursor: pointer;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            cursor: pointer;
-            font-weight: bold;
-            font-size: 1.2rem;
-        }
-
-        .rule-header:hover { background-color: #123069; }
-
-        .rule-content {
-            padding: 0 40px;
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.4s ease-out;
-            background-color: rgba(0, 0, 0, 0.2);
-            color: #ccc;
-            font-size: 1rem;
-        }
-
-        .rule-card.active .rule-content {
-            padding: 20px 40px;
-            max-height: 500px; /* مساحة كافية للنص */
-        }
-
-        .rule-card.active {
-            border-color: var(--accent-blue);
-            box-shadow: 0 0 15px rgba(0, 212, 255, 0.2);
-        }
-
-        /* Discord Button */
-        .discord-btn {
-            display: block;
-            width: fit-content;
-            margin: 40px auto;
-            background: var(--accent-blue);
-            color: #000;
-            padding: 15px 40px;
-            border-radius: 10px;
-            text-decoration: none;
-            font-weight: 900;
-            font-size: 1.2rem;
             transition: 0.3s;
         }
-        .discord-btn:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0, 212, 255, 0.4); }
 
-        footer { text-align: center; padding: 40px; color: #444; }
+        .role-content {
+            background: rgba(14, 26, 51, 0.9);
+            margin-top: 15px;
+            border-radius: 25px;
+            max-height: 0;
+            overflow: hidden;
+            transition: 0.5s ease-out;
+            text-align: right;
+            border: 1px solid rgba(0, 212, 255, 0.1);
+        }
+
+        .role-content.show { max-height: 2000px; padding: 30px 40px; border: 1px solid var(--accent-cyan); }
+
+        .rule-block { margin-bottom: 25px; padding-bottom: 15px; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .rule-block h3 { color: var(--accent-cyan); margin-bottom: 10px; font-size: 1.3rem; border-right: 5px solid var(--accent-cyan); padding-right: 15px; }
+        .rule-block p { font-size: 1rem; color: #cbd5e1; }
+
+        footer { text-align: center; padding: 40px; font-size: 0.8rem; color: #444; }
 
     </style>
 </head>
@@ -127,100 +117,92 @@
 
     <nav>
         <ul class="nav-links">
-            <li><a href="#">الرئيسية</a></li>
-            <li><a href="#" class="active">قوانين السيرفر</a></li>
-            <li><a href="https://discord.gg/2e8GUmVJBR">الدعم الفني</a></li>
+            <li id="nav-info" class="active" onclick="showSection('info')">معلومات السيرفر</li>
+            <li id="nav-rules" onclick="showSection('rules')">قوانين السيرفر</li>
         </ul>
     </nav>
 
-    <header class="hero">
-        <h1>قوانين السيرفر</h1>
-        <div style="width: 100px; height: 4px; background: var(--accent-blue); margin: 0 auto;"></div>
-    </header>
+    <section id="info" class="section active hero">
+        <div class="info-box">
+            <h1>عرب سيتي | ARAB CITY</h1>
+            <p>
+                عرب سيتي هو سيرفر CFW متكامل صُمّم ليقدّم تجربة حياة واقعية غنية بالتفاصيل داخل عالم مفتوح يجمع بين التفاعل، التحدي، والمتعة. نهدف إلى بناء مجتمع متماسك يتيح للاعبين عيش أدوارهم بحرية كاملة ضمن بيئة منظمة تعتمد على العدالة والاحترافية في جميع الأنظمة.
+                <br><br>
+                يوفر السيرفر مجموعة واسعة من الأنشطة والوظائف التي تمكّنك من رسم مسارك الخاص، سواء اخترت العمل في القطاعات الحكومية مثل الأمن والإسعاف، أو التوجه نحو الأعمال والتجارة، أو حتى خوض مغامراتك الخاصة داخل المدينة. 
+            </p>
+            <div class="btn-container">
+                <a href="https://discord.gg/2e8GUmVJBR" class="btn btn-discord"><i class="fab fa-discord"></i> دخول السيرفر</a>
+                <a href="https://youtube.com/@dokyyiii?si=UdQ-kcK0Vkl619oB" class="btn btn-youtube"><i class="fab fa-youtube"></i> حسابنا في YouTube</a>
+            </div>
+        </div>
+    </section>
 
-    <div class="rules-container">
+    <section id="rules" class="section rules-page">
+        <h2 style="font-size: 2.5rem; margin-bottom: 40px;">قوانين السيرفر</h2>
         
-        <div class="rule-card">
-            <div class="rule-header" onclick="toggleRule(this)">
-                <span>1- قانون تقدير الحياة - NWL</span>
-                <span>▼</span>
-            </div>
-            <div class="rule-content">
-                هي الحفاظ على حياتك وحياة الآخرين، وعدم التهور، وأن لا تستهين بقتل الأشخاص، وأن لا تقاوم المجرم أو الشرطة او اي شحص يحمل سلاح مهما كان خصوصاً اذا كنت أعزل.
+        <div class="rules-wrapper">
+            <button class="role-btn" onclick="toggleRole()">
+                <span>قوانين الرول</span>
+                <i class="fas fa-chevron-down" id="arrow"></i>
+            </button>
+            
+            <div class="role-content" id="roleContent">
+                <div class="rule-block">
+                    <h3>1- قانون تقدير الحياة - NWL</h3>
+                    <p>هي الحفاظ على حياتك وحياة الآخرين، وعدم التهور، وأن لا تستهين بقتل الأشخاص، وأن لا تقاوم المجرم أو الشرطة او اي شحص يحمل سلاح مهما كان خصوصاً اذا كنت أعزل، وهذا لا يمنع استعمال حق الدفاع عن النفس عند الضرورة، وبكل الأحوال يجب محاورة اللاعب بشكل جيد والتفاوض معه.</p>
+                </div>
+
+                <div class="rule-block">
+                    <h3>2- القتل العشوائي - RDM</h3>
+                    <p>قتل الأشخاص دون سبب، تهديد، بصورة عشوائية او بدون عداوة يعتبر القتل العشوائي ممنوع ومخالف للنظام العام للسيرفر.</p>
+                </div>
+
+                <div class="rule-block">
+                    <h3>3- الميتا جيمنج Metagaming</h3>
+                    <p>اي معلومة تحصل عليها من خارج المدينة مثال معلومة حصلت عليها من بث او دسكورد او مقطع باليوتيوب كلها تعتبر مخالفة.</p>
+                </div>
+
+                <div class="rule-block">
+                    <h3>4- الخوف على الحياة - NVL</h3>
+                    <p>عدم الخوف بشكل واقعي على حياتك عندما تتعرض للتهديد بالأسلحة أو بأذى شديد يعتبر الخوف على الحياة شي اساسي ومهم جداً.</p>
+                </div>
+
+                <div class="rule-block">
+                    <h3>5- الباور جيمنج - PowerGaming</h3>
+                    <p>استخدام الوسائل غير موجودة في اللعبة للحصول على ميزة أو عدم التوافق مع العالم بطريقة معقولة وبشكل واقعي.</p>
+                </div>
+
+                <div class="rule-block">
+                    <h3>6- قوانين الحياة الجديدة - NLR</h3>
+                    <p>في حال اغمائك بشكل كامل لا يمكنك الكلام او الحركة. إذا ماتت شخصيتك، تنسى تفاصيل سبب موتك والأشخاص المتورطين. يمنع الرجوع للانتقام مباشرة. في حال تم انعاشك من مسعفين تتذكر الاحداث، اما في العيادة فتنسى كل شيء.</p>
+                </div>
+
+                <p style="text-align:center; color: var(--accent-cyan); font-weight: bold; margin-top: 20px;">
+                    نتمنى مراجعة القوانين و حفظها بشكل جيد من أجل اجتياز التفعيل ✅
+                </p>
             </div>
         </div>
-
-        <div class="rule-card">
-            <div class="rule-header" onclick="toggleRule(this)">
-                <span>2- القتل العشوائي - RDM</span>
-                <span>▼</span>
-            </div>
-            <div class="rule-content">
-                قتل الأشخاص دون سبب، تهديد، بصورة عشوائية او بدون عداوة يعتبر القتل العشوائي ممنوع ومخالف للنظام العام للسيرفر.
-            </div>
-        </div>
-
-        <div class="rule-card">
-            <div class="rule-header" onclick="toggleRule(this)">
-                <span>3- الميتا جيمنج Metagaming</span>
-                <span>▼</span>
-            </div>
-            <div class="rule-content">
-                اي معلومة تحصل عليها من خارج المدينة مثال معلومة حصلت عليها من بث او دسكورد او مقطع باليوتيوب كلها تعتبر مخالفة.
-            </div>
-        </div>
-
-        <div class="rule-card">
-            <div class="rule-header" onclick="toggleRule(this)">
-                <span>4- الخوف على الحياة - NVL</span>
-                <span>▼</span>
-            </div>
-            <div class="rule-content">
-                عدم الخوف بشكل واقعي على حياتك عندما تتعرض للتهديد بالأسلحة أو بأذى شديد يعتبر مخالفة للقوانين الأساسية.
-            </div>
-        </div>
-
-        <div class="rule-card">
-            <div class="rule-header" onclick="toggleRule(this)">
-                <span>5- الباور جيمنج - PowerGaming</span>
-                <span>▼</span>
-            </div>
-            <div class="rule-content">
-                استخدام الوسائل غير موجودة في اللعبة للحصول على ميزة أو عدم التوافق مع العالم بطريقة معقولة وبشكل واقعي.
-            </div>
-        </div>
-
-        <div class="rule-card">
-            <div class="rule-header" onclick="toggleRule(this)">
-                <span>6- قوانين الحياة الجديدة - NLR</span>
-                <span>▼</span>
-            </div>
-            <div class="rule-content">
-                في حال اغمائك بشكل كامل لا يمكنك الكلام او الحركة. إذا ماتت شخصيتك، تنسى تفاصيل سبب موتك والأشخاص المتورطين. ممنوع الرجوع للانتقام مباشرة.
-            </div>
-        </div>
-
-        <a href="https://discord.gg/2e8GUmVJBR" class="discord-btn">دخول السيرفر ✅</a>
-
-    </div>
+    </section>
 
     <footer>
         <p>جميع الحقوق محفوظة لصالح عرب سيتي &copy; 2026</p>
     </footer>
 
     <script>
-        function toggleRule(element) {
-            const card = element.parentElement;
-            card.classList.toggle('active');
-            
-            // لإغلاق القوائم الأخرى عند فتح قائمة واحدة (اختياري)
-            /*
-            document.querySelectorAll('.rule-card').forEach(c => {
-                if (c !== card) c.classList.remove('active');
-            });
-            */
+        function showSection(sectionId) {
+            document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active'));
+            document.querySelectorAll('.nav-links li').forEach(li => li.classList.remove('active'));
+            document.getElementById(sectionId).classList.add('active');
+            document.getElementById('nav-' + sectionId).classList.add('active');
+            window.scrollTo(0,0);
+        }
+
+        function toggleRole() {
+            const content = document.getElementById("roleContent");
+            const arrow = document.getElementById("arrow");
+            content.classList.toggle("show");
+            arrow.style.transform = content.classList.contains("show") ? "rotate(180deg)" : "rotate(0deg)";
         }
     </script>
-
 </body>
 </html>
