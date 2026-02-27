@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>عرب سيتي | Arab City — CFW</title>
+    <title>عرب سيتي | Arab City</title>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
@@ -13,7 +13,6 @@
             --accent-cyan: #00d4ff;
             --purple-nav: #4b0082;
             --text-gray: #cbd5e1;
-            --safe-green: #2ecc71;
             --warning-gold: #f1c40f;
             --danger-red: #ff4757;
         }
@@ -21,7 +20,7 @@
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Cairo', sans-serif; }
         body { background-color: var(--dark-blue); color: #ffffff; line-height: 1.8; overflow-x: hidden; }
 
-        /* Navbar - القوائم فوق */
+        /* Navbar */
         nav { 
             display: flex; justify-content: center; align-items: center; padding: 15px; 
             background: rgba(10, 33, 77, 0.95); backdrop-filter: blur(15px); 
@@ -32,120 +31,171 @@
         .nav-links li { cursor: pointer; padding: 8px 18px; border-radius: 25px; font-weight: bold; transition: 0.3s; font-size: 0.85rem; color: white; }
         .nav-links li.active { background: var(--purple-nav); }
 
-        /* Sections */
-        .section { display: none; min-height: 100vh; padding-top: 120px; }
-        .section.active { display: block; animation: fadeIn 0.5s ease; }
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-
-        /* Hero Page - عرب سيتي تحت القوائم */
+        /* Hero Page - التنسيق الجديد */
         .hero {
-            background: linear-gradient(rgba(5, 10, 26, 0.85), rgba(5, 10, 26, 0.95)), 
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(rgba(5, 10, 26, 0.8), rgba(5, 10, 26, 0.9)), 
                         url('https://raw.githubusercontent.com/sultan8100/ARABCITY/main/IMG_0223.jpg');
-            background-size: cover; background-position: center; background-attachment: fixed;
-            text-align: center; padding: 40px 20px 80px;
+            background-size: cover; background-position: center;
+            padding: 20px;
         }
-        .info-box h1 { font-size: 3rem; margin-top: 20px; margin-bottom: 30px; font-weight: 900; text-shadow: 0 0 20px rgba(0, 212, 255, 0.5); }
-        .info-box p { font-size: 1.1rem; color: var(--text-gray); text-align: justify; background: rgba(0, 0, 0, 0.6); padding: 30px; border-radius: 20px; border: 1px solid rgba(0, 212, 255, 0.2); white-space: pre-line; margin-bottom: 35px; max-width: 850px; margin-left: auto; margin-right: auto; }
 
-        .btn-container { display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; }
-        .btn { padding: 12px 30px; border-radius: 30px; text-decoration: none; font-weight: 900; display: flex; align-items: center; gap: 10px; transition: 0.3s; color: white; }
-        .btn-discord { background: #5865F2; }
-        .btn-youtube { background: #ff0000; }
+        .hero h1 { font-size: 4rem; font-weight: 900; color: #fff; text-shadow: 0 0 30px var(--accent-cyan); margin-bottom: 60px; }
+        
+        /* كلام التعريف تحت العنوان بـ 3 سطور (margin-top) */
+        .hero p { 
+            font-size: 1.2rem; color: var(--text-gray); max-width: 800px; 
+            margin-bottom: 50px; line-height: 2; background: rgba(0,0,0,0.4); 
+            padding: 20px; border-radius: 15px; 
+        }
+
+        .btn-container { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin-top: 20px; }
+        .btn { padding: 12px 35px; border-radius: 50px; text-decoration: none; font-weight: 900; display: flex; align-items: center; gap: 10px; transition: 0.3s; color: white; font-size: 1rem; }
+        .btn-discord { background: #5865F2; box-shadow: 0 0 15px #5865f266; }
+        .btn-youtube { background: #ff0000; box-shadow: 0 0 15px #ff000066; }
         .btn-tiktok { background: #000000; border: 1px solid #fff; }
+        .btn:hover { transform: translateY(-5px); filter: brightness(1.2); }
 
-        /* Accordion Style */
-        .rules-wrapper { max-width: 900px; margin: 0 auto; padding: 20px; }
+        /* Sections */
+        .section { display: none; min-height: 100vh; padding: 120px 20px 60px; }
+        .section.active { display: block; }
+
+        /* Accordion */
+        .rules-wrapper { max-width: 1000px; margin: 0 auto; }
         .role-btn {
-            width: 100%; background: var(--royal-blue); color: white; padding: 18px 30px; border-radius: 50px;
-            font-size: 1.1rem; font-weight: 900; border: 2px solid var(--accent-cyan); cursor: pointer;
-            display: flex; justify-content: space-between; align-items: center; transition: 0.3s; margin-bottom: 15px;
+            width: 100%; background: var(--royal-blue); color: white; padding: 20px 30px; border-radius: 15px;
+            font-size: 1.2rem; font-weight: 900; border: 1px solid var(--accent-cyan); cursor: pointer;
+            display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;
         }
         .role-content {
-            background: rgba(14, 26, 51, 0.95); border-radius: 25px; max-height: 0; overflow: hidden;
-            transition: max-height 0.6s ease-in-out; text-align: right; margin-bottom: 10px;
+            background: rgba(14, 26, 51, 0.98); border-radius: 15px; max-height: 0; overflow: hidden;
+            transition: max-height 0.5s ease; text-align: right; margin-bottom: 20px;
         }
-        .role-content.show { max-height: 5000px; padding: 25px 35px; border: 1px solid var(--accent-cyan); overflow-y: auto; }
-        .rule-item-text { padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.05); color: var(--text-gray); font-size: 0.95rem; }
+        .role-content.show { max-height: 5000px; padding: 30px; border: 1px solid rgba(0, 212, 255, 0.3); overflow-y: auto; }
         
-        /* Tables & Helpers */
-        table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+        .rule-text { padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.05); color: var(--text-gray); }
+        .sub-t { color: var(--accent-cyan); font-weight: bold; }
+        .note-card { background: rgba(241, 196, 15, 0.1); border: 1px solid var(--warning-gold); padding: 15px; border-radius: 10px; margin: 15px 0; }
+        
+        table { width: 100%; border-collapse: collapse; margin: 15px 0; background: rgba(0,0,0,0.2); }
         th, td { padding: 12px; border: 1px solid rgba(0, 212, 255, 0.2); text-align: center; }
-        .note-box { background: rgba(241, 196, 15, 0.1); border: 1px solid var(--warning-gold); padding: 15px; border-radius: 15px; margin-top: 15px; color: var(--warning-gold); }
+        th { color: var(--accent-cyan); background: rgba(10, 33, 77, 0.5); }
 
-        .roblox-action {
-            display: block; background: linear-gradient(45deg, #4b0082, #00d4ff); color: white; 
-            padding: 22px; border-radius: 50px; text-decoration: none; font-weight: 900; 
-            text-align: center; margin-top: 35px; border: 2px solid white; transition: 0.3s;
-        }
-
-        footer { text-align: center; padding: 40px; font-size: 0.9rem; color: #555; }
+        footer { text-align: center; padding: 40px; color: #444; border-top: 1px solid rgba(255,255,255,0.05); }
     </style>
 </head>
 <body>
 
     <nav>
         <ul class="nav-links">
-            <li id="nav-info" class="active" onclick="showSection('info')">معلومات السيرفر</li>
-            <li id="nav-rules" onclick="showSection('rules')">قوانين السيرفر</li>
+            <li id="nav-info" class="active" onclick="showSection('info')">الرئيسية</li>
+            <li id="nav-rules" onclick="showSection('rules')">القوانين الكاملة</li>
             <li id="nav-maps" onclick="showSection('maps')">المابات</li>
         </ul>
     </nav>
 
     <section id="info" class="section active hero">
-        <div class="info-box">
-            <h1>عرب سيتي | ARAB CITY</h1>
-            <p>سيرفر عرب سيتي يرحب بكم! هنا تجدون كافة القوانين والأنظمة لضمان أفضل تجربة حياة واقعية داخل عالمنا المفتوح.</p>
-            <div class="btn-container">
-                <a href="https://discord.gg/2e8GUmVJBR" class="btn btn-discord"><i class="fab fa-discord"></i> دخول السيرفر</a>
-                <a href="https://youtube.com/@dokyyiii?si=UdQ-kcK0Vkl619oB" class="btn btn-youtube"><i class="fab fa-youtube"></i> يوتيوب</a>
-                <a href="https://www.tiktok.com/@arab_cityrp?_r=1&_t=ZS-94HYgRmUrb7" class="btn btn-tiktok"><i class="fab fa-tiktok"></i> تيك توك</a>
-            </div>
+        <h1>عرب سيتي</h1>
+        <p>
+            عرب سيتي هو سيرفر CFW متكامل صُمّم ليقدّم تجربة حياة واقعية غنية بالتفاصيل داخل عالم مفتوح يجمع بين التفاعل، التحدي، والمتعة. نهدف إلى بناء مجتمع متماسك يتيح للاعبين عيش أدوارهم بحرية كاملة ضمن بيئة منظمة تعتمد على العدالة والاحترافية.
+        </p>
+        <div class="btn-container">
+            <a href="https://discord.gg/2e8GUmVJBR" class="btn btn-discord"><i class="fab fa-discord"></i> ديسكورد</a>
+            <a href="https://youtube.com/@dokyyiii?si=UdQ-kcK0Vkl619oB" class="btn btn-youtube"><i class="fab fa-youtube"></i> يوتيوب</a>
+            <a href="https://www.tiktok.com/@arab_cityrp?_r=1&_t=ZS-94HYgRmUrb7" class="btn btn-tiktok"><i class="fab fa-tiktok"></i> تيك توك</a>
         </div>
     </section>
 
     <section id="rules" class="section">
-        <h2 style="text-align:center; font-size: 2.5rem; margin-bottom: 40px; font-weight: 900;">قوانين السيرفر</h2>
+        <h2 style="text-align:center; margin-bottom: 40px; font-size: 2.5rem;">لوحة القوانين والأنظمة</h2>
         <div class="rules-wrapper">
-            
-            <button class="role-btn" onclick="toggle('r7')"><span>قوانين السيرفر العامة</span><i class="fas fa-chevron-down"></i></button>
-            <div id="r7" class="role-content">
-                <div class="rule-item-text">1 - يُمنع القذف أو السب بكل أشكاله.</div>
-                <div class="rule-item-text">2 - يُمنع النشر لأي سيرفر أو حساب بأي شكل من الأشكال.</div>
-                <div class="rule-item-text">3 - الأحترام واجب بين الجميع.</div>
-                <div class="rule-item-text">4 - يُمنع الدخول في مواضيع مخلة للاداب والذوق العام.</div>
-                <div class="rule-item-text">5 - يُمنع مضايقة الآخرين.</div>
-                <div class="rule-item-text">6 - يُمنع طلب رتبة أو التلميح لذلك.</div>
-                <div class="rule-item-text">7 - يُمنع الدخول في مواضيع سياسية، عنصرية، اجتماعية إلخ.</div>
-                <div class="rule-item-text">8 - يُمنع السبام في أي روم (تكرار الرسائل).</div>
-                <div class="rule-item-text">9 - يُمنع وضع صورة أو بايو أو اسم مُخل للادب.</div>
-                <div class="rule-item-text">10 - يُمنع البيع والشراء والترويج لمنتج ما.</div>
-                <div class="rule-item-text">11 - يُمنع وضع روابط خارجية.</div>
-                <div class="rule-item-text">12 - يُمنع تخريب الفعاليات العامة.</div>
-                <div class="rule-item-text">13 - يُمنع التدخل في الأمور الإدارية.</div>
-                <div class="rule-item-text">14 - يُمنع تقديم الإهانات أو تشفير السب.</div>
-                <div class="rule-item-text">15 - يُمنع الإستهبال في التقديمات داخل السيرفر.</div>
-            </div>
 
-            <button class="role-btn" onclick="toggle('r1')"><span>قوانين الرول</span><i class="fas fa-chevron-down"></i></button>
+            <button class="role-btn" onclick="toggle('r1')">قوانين الرول العامة (NWL/RDM/Metagaming) <i class="fas fa-chevron-down"></i></button>
             <div id="r1" class="role-content">
-                <div class="rule-item-text">تقدير الحياة (NWL)، القتل العشوائي (RDM)، الميتا جيمنج، وغيرها.</div>
+                <div class="rule-text"><span class="sub-t">1- تقدير الحياة (NWL):</span> الحفاظ على حياتك وحياة الآخرين، عدم التهور، والتفاوض قبل تعريض حياة الآخرين للخطر.</div>
+                <div class="rule-text"><span class="sub-t">2- القتل العشوائي (RDM):</span> يمنع قتل الأشخاص دون سبب أو تهديد مباشر.</div>
+                <div class="rule-text"><span class="sub-t">3- الميتا جيمنج (Metagaming):</span> يمنع استخدام معلومات من خارج اللعبة (بث، ديسكورد، يوتيوب).</div>
+                <div class="rule-text"><span class="sub-t">4- الخوف على الحياة (NVL):</span> يجب إظهار الخوف الواقعي عند التهديد بالسلاح.</div>
+                <div class="rule-text"><span class="sub-t">5- الباور جيمنج (PowerGaming):</span> يمنع استخدام قدرات غير واقعية أو آليات غير موجودة في اللعبة.</div>
+                <div class="rule-text"><span class="sub-t">6- الحياة الجديدة (NLR):</span> عند الموت تنسى الأحداث والعداوات السابقة ولا يحق لك الانتقام فوراً.</div>
             </div>
 
-            <button class="role-btn" onclick="toggle('r6')"><span>المناطق الآمنة</span><i class="fas fa-chevron-down"></i></button>
-            <div id="r6" class="role-content">
-                <div class="rule-item-text">ورشة التصليح، السجن، وزارة العدل، المعارض، الرسبون، وزارة الصحة، مركز الشرطة ومواقفها.</div>
+            <button class="role-btn" onclick="toggle('r2')">قوانين الإجرام والرهائن <i class="fas fa-chevron-down"></i></button>
+            <div id="r2" class="role-content">
+                <div class="rule-text">1- يمنع مقاومة السلاح الأبيض بدون سلاح، ويمنع مقاومة السلاح الناري بسلاح أبيض.</div>
+                <div class="rule-text">2- يجب على المخطوف تقمص شخصية الرهينة تماماً.</div>
+                <div class="rule-text">3- التوجه لمكان التفاوض فوراً بعد خطف الرهينة.</div>
+                <div class="rule-text">4- التهديد يجب أن يكون مباشراً وخارج المركبة.</div>
+                <div class="rule-text">5- يمنع السرقة قبل الإعصار بـ 5 دقائق.</div>
+                <div class="rule-text">6- يمنع الكلبشة قبل استسلام الشخص ورفع يديه.</div>
+                <div class="rule-text">7- يحق للرهينة الهروب عند غفلة الخاطف.</div>
+                <div class="rule-text">8- يمنع قتل الرهينة إذا انصاع للأوامر.</div>
+                <div class="rule-text">9- الحد الأقصى للفدية هو 300$ للرهينة الواحدة.</div>
+                <div class="rule-text">10- يمنع استدراج الشرطة أو المسعفين عبر الطلبات لخطفهم.</div>
+                <div class="rule-text">11- حد أفراد العصابة 15 عضواً فقط.</div>
+                <div class="rule-text">12- يمنع الإجرام بمركبات الوظائف الرسمية.</div>
+                <div class="rule-text">13- يمنع افتعال فايت بهدف الشخصنة أو بدون عداوة (3 مواقف موثقة).</div>
             </div>
+
+            <button class="role-btn" onclick="toggle('r3')">قوانين الإعدام <i class="fas fa-chevron-down"></i></button>
+            <div id="r3" class="role-content">
+                <div class="rule-text"><span class="sub-t">إعدام العسكر:</span> مسموح لـ 5 أشخاص كحد أقصى، يمنع على تهم بسيطة ويجب استخدام سلاح عسكري.</div>
+                <div class="rule-text"><span class="sub-t">إعدام المجرمين:</span> بإذن رئيس العصابات، الحد المسموح 5.</div>
+                <div class="rule-text"><span class="sub-t">إعدام المواطنين:</span> مواطن لمواطن، الحد 5.</div>
+                <div class="note-card">📝 يجب تصوير الإعدام كاملاً وفتح تذكرة رقابة وانتظار القبول.</div>
+            </div>
+
+            <button class="role-btn" onclick="toggle('r4')">أعداد السرقات والوحدات <i class="fas fa-chevron-down"></i></button>
+            <div id="r4" class="role-content">
+                <table>
+                    <tr><th>السرقة</th><th>السارقين</th><th>الشرطة</th></tr>
+                    <tr><td>بقالة / صرافة</td><td>1-3</td><td>5</td></tr>
+                    <tr><td>بيت / بيت عسكري</td><td>2-5</td><td>7</td></tr>
+                    <tr><td>مجوهرات</td><td>3-8</td><td>10</td></tr>
+                    <tr><td>بنك Maze Bank</td><td>4-9</td><td>11</td></tr>
+                </table>
+                <div class="rule-text">الحالات المفتوحة: للاعبين (7 MAX) - للعساكر (10 MAX)</div>
+            </div>
+
+            <button class="role-btn" onclick="toggle('r5')">آلية الباند والتحذيرات <i class="fas fa-chevron-down"></i></button>
+            <div id="r5" class="role-content">
+                <div class="rule-text">1- تحذير: باند 12-16 ساعة.</div>
+                <div class="rule-text">2- تحذير أول: باند يوم واحد.</div>
+                <div class="rule-text">3- تحذير ثاني: باند 3 أيام.</div>
+                <div class="rule-text">4- تحذير ثالث: باند 7 أيام + إعادة تفعيل.</div>
+                <div class="rule-text">5- باند نهائي: فرصة طلب استئناف بعد أسبوعين.</div>
+                <div class="note-card">تزال التحذيرات تلقائياً (7-14 يوم حسب نوع التحذير).</div>
+            </div>
+
+            <button class="role-btn" onclick="toggle('r6')">المناطق الآمنة <i class="fas fa-chevron-down"></i></button>
+            <div id="r6" class="role-content">
+                <div class="rule-text">الورشة، السجن، وزارة العدل، المعارض، الرسبون، وزارة الصحة، مركز الشرطة ومواقفها.</div>
+                <div class="note-card">يمنع الإطلاق إلا في حال وجود اشتباك طلق نار قائم فقط.</div>
+            </div>
+
+            <button class="role-btn" onclick="toggle('r7')">قوانين السيرفر العامة (1-15) <i class="fas fa-chevron-down"></i></button>
+            <div id="r7" class="role-content">
+                <div class="rule-text">1- يمنع القذف والسب. 2- يمنع النشر. 3- الاحترام واجب. 4- يمنع المواضيع المخلة. 5- يمنع الاستهبال في التقديمات. 6- يمنع طلب الرتب. 7- يمنع الكلام في السياسة والعنصرية. 8- يمنع السبام. 9- يمنع وضع صور مخلة. 10- يمنع البيع والترويج. 11- يمنع الروابط. 12- يمنع تخريب الفعاليات. 13- يمنع التدخل في الإدارة. 14- يمنع الإهانة وتشفير السب. 15- يمنع الاستهبال بالتقديمات.</div>
+            </div>
+
         </div>
     </section>
 
     <section id="maps" class="section">
-        <h2 style="text-align:center; font-size: 2.5rem; margin-bottom: 40px; font-weight: 900;">مابات عرب سيتي</h2>
+        <h2 style="text-align:center; margin-bottom: 40px;">مابات السيرفر</h2>
         <div class="rules-wrapper">
-             <a href="https://www.roblox.com/share?code=bf6a6956c7cfc741bcd01a2e3a6ed598&type=ExperienceDetails&stamp=1772229946874" target="_blank" class="roblox-action">دخول ماب فايتات (OTSM)</a>
+             <a href="https://www.roblox.com/share?code=bf6a6956c7cfc741bcd01a2e3a6ed598&type=ExperienceDetails&stamp=1772229946874" target="_blank" class="btn" style="background: linear-gradient(to right, #4b0082, #00d4ff); width: 100%; justify-content: center; padding: 25px;">دخول ماب الفايتات (OTSM)</a>
         </div>
     </section>
 
-    <footer><p>جميع الحقوق محفوظة لصالح عرب سيتي &copy; 2026</p></footer>
+    <footer>
+        <p>عرب سيتي &copy; 2026 | تطوير وتصميم Arab City Team</p>
+    </footer>
 
     <script>
         function showSection(id) {
@@ -158,7 +208,9 @@
         function toggle(id) {
             const content = document.getElementById(id);
             const isShow = content.classList.contains('show');
-            document.querySelectorAll('.role-content').forEach(c => c.classList.remove('show'));
+            document.querySelectorAll('.role-content').forEach(c => {
+                c.classList.remove('show');
+            });
             if(!isShow) content.classList.add('show');
         }
     </script>
