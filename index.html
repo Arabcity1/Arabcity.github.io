@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>عرب سيتي | Arab City — CFW</title>
+    <title>عرب سيتي | ARAB CITY</title>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
@@ -18,133 +18,126 @@
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Cairo', sans-serif; }
         body { background-color: var(--dark-blue); color: #ffffff; line-height: 1.6; overflow-x: hidden; }
 
-        /* Navbar Fixed */
+        /* Navbar */
         nav { 
             display: flex; justify-content: center; align-items: center; padding: 10px; 
-            background: rgba(10, 33, 77, 0.9); backdrop-filter: blur(10px); 
+            background: rgba(10, 33, 77, 0.95); backdrop-filter: blur(10px); 
             position: fixed; width: 100%; top: 0; z-index: 2000; border-bottom: 1px solid var(--accent-cyan);
         }
-        .nav-links { display: flex; list-style: none; gap: 15px; }
+        .nav-links { display: flex; list-style: none; gap: 10px; padding: 5px; }
         .nav-links li { 
-            cursor: pointer; padding: 8px 20px; border-radius: 20px; 
-            font-weight: bold; transition: 0.3s; font-size: 0.9rem; border: 1px solid transparent;
+            cursor: pointer; padding: 8px 15px; border-radius: 20px; 
+            font-weight: bold; transition: 0.3s; font-size: 0.9rem;
         }
-        .nav-links li:hover { border-color: var(--accent-cyan); }
-        .nav-links li.active { background: var(--purple-nav); color: white; }
+        .nav-links li.active { background: var(--purple-nav); color: white; box-shadow: 0 0 10px var(--purple-nav); }
 
-        /* Containers */
-        .section { display: none; padding: 100px 20px 40px; min-height: 100vh; max-width: 1000px; margin: 0 auto; }
-        .section.active { display: block; animation: fadeIn 0.5s ease; }
+        /* Sections */
+        .section { display: none; padding: 100px 20px 40px; min-height: 100vh; max-width: 900px; margin: 0 auto; }
+        .section.active { display: block; animation: fadeIn 0.6s ease; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-
-        /* Hero Styling */
-        .hero-card {
-            background: linear-gradient(rgba(10, 33, 77, 0.8), rgba(5, 10, 26, 0.9)), 
-                        url('https://raw.githubusercontent.com/sultan8100/ARABCITY/main/IMG_0223.jpg');
-            background-size: cover; background-position: center;
-            padding: 60px 30px; border-radius: 30px; text-align: center; border: 1px solid var(--accent-cyan);
-        }
-        .hero-card h1 { font-size: 2.5rem; margin-bottom: 20px; font-weight: 900; }
-        .hero-card p { text-align: justify; font-size: 1.05rem; color: var(--text-gray); white-space: pre-line; margin-bottom: 30px; }
-
-        /* Accordion Styling */
-        .acc-item { margin-bottom: 15px; border-radius: 15px; overflow: hidden; border: 1px solid rgba(0, 212, 255, 0.3); }
+        /* Cards */
+        .card { background: rgba(10, 33, 77, 0.4); border-radius: 25px; padding: 30px; border: 1px solid rgba(0, 212, 255, 0.2); margin-bottom: 20px; }
+        
+        /* Accordion */
+        .acc-item { margin-bottom: 12px; border-radius: 15px; overflow: hidden; border: 1px solid rgba(0, 212, 255, 0.3); }
         .acc-btn {
-            width: 100%; padding: 18px 25px; background: var(--royal-blue); color: white;
+            width: 100%; padding: 18px 20px; background: var(--royal-blue); color: white;
             border: none; cursor: pointer; display: flex; justify-content: space-between;
-            align-items: center; font-size: 1.1rem; font-weight: 700; transition: 0.3s;
+            align-items: center; font-size: 1rem; font-weight: 700; transition: 0.3s;
         }
-        .acc-btn:hover { background: #0e2d63; }
         .acc-content { 
-            background: rgba(10, 33, 77, 0.5); max-height: 0; overflow: hidden; 
-            transition: all 0.5s cubic-bezier(0,1,0,1); 
+            background: rgba(5, 10, 26, 0.8); max-height: 0; overflow: hidden; 
+            transition: max-height 0.5s ease-out; 
         }
-        .acc-content.show { max-height: 5000px; padding: 25px; transition: all 0.5s cubic-bezier(1,0,1,0); }
+        .acc-content.show { max-height: 2500px; padding: 20px; }
 
-        /* Images Gallery */
-        .img-stack { display: flex; flex-direction: column; gap: 20px; align-items: center; }
-        .img-stack img { width: 100%; max-width: 800px; border-radius: 15px; border: 2px solid var(--accent-cyan); }
+        /* Images Grid */
+        .img-container { display: flex; flex-direction: column; gap: 15px; margin-top: 10px; }
+        .img-container img { 
+            width: 100%; border-radius: 12px; border: 2px solid var(--accent-cyan);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5); object-fit: cover;
+        }
 
-        /* Special Roblox Button */
+        /* Roblox Button */
         .roblox-btn {
-            display: block; width: 100%; max-width: 600px; margin: 30px auto;
-            background: linear-gradient(90deg, #4b0082, #00d4ff);
-            color: white; padding: 20px; border-radius: 50px; text-decoration: none;
-            text-align: center; font-weight: 900; font-size: 1.1rem;
-            border: 2px solid white; box-shadow: 0 5px 20px rgba(0, 212, 255, 0.4);
-            transition: 0.3s;
+            display: flex; align-items: center; justify-content: center; gap: 12px;
+            width: 100%; max-width: 500px; margin: 40px auto;
+            background: linear-gradient(135deg, #4b0082, #00d4ff);
+            color: white; padding: 18px; border-radius: 50px; text-decoration: none;
+            font-weight: 900; font-size: 1.1rem; border: 2px solid white;
+            transition: 0.4s; box-shadow: 0 10px 25px rgba(0, 212, 255, 0.3);
         }
-        .roblox-btn:hover { transform: scale(1.03); box-shadow: 0 8px 25px rgba(0, 212, 255, 0.6); }
+        .roblox-btn:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0, 212, 255, 0.5); }
 
-        footer { text-align: center; padding: 30px; color: #555; font-size: 0.8rem; }
+        footer { text-align: center; padding: 30px; color: #444; font-size: 0.8rem; }
     </style>
 </head>
 <body>
 
     <nav>
         <ul class="nav-links">
-            <li id="li-info" class="active" onclick="showTab('info')">الرئيسية</li>
-            <li id="li-rules" onclick="showTab('rules')">القوانين</li>
-            <li id="li-maps" onclick="showTab('maps')">المابات</li>
+            <li id="nav-info" class="active" onclick="showTab('info')">الرئيسية</li>
+            <li id="nav-rules" onclick="showTab('rules')">القوانين</li>
+            <li id="nav-maps" onclick="showTab('maps')">المابات</li>
         </ul>
     </nav>
 
     <section id="info" class="section active">
-        <div class="hero-card">
-            <h1>عرب سيتي | Arab City — CFW</h1>
-            <p>
-                عرب سيتي هو سيرفر CFW متكامل صُمّم ليقدّم تجربة حياة واقعية غنية بالتفاصيل داخل عالم مفتوح يجمع بين التفاعل، التحدي، والمتعة. نهدف إلى بناء مجتمع متماسك يتيح للاعبين عيش أدوارهم بحرية كاملة ضمن بيئة منظمة تعتمد على العدالة والاحترافية في جميع الأنظمة.
-                
-                انضم الآن وابدأ رحلتك في عالم تُصنع فيه الفرص.
+        <div class="card" style="text-align: center;">
+            <h1 style="font-size: 2.2rem; margin-bottom: 20px;">عرب سيتي | Arab City</h1>
+            <p style="text-align: justify; color: var(--text-gray);">
+                عرب سيتي هو سيرفر متكامل صُمّم ليقدّم تجربة حياة واقعية غنية بالتفاصيل داخل عالم مفتوح يجمع بين التفاعل، التحدي، والمتعة. نهدف إلى بناء مجتمع متماسك يتيح للاعبين عيش أدوارهم بحرية كاملة ضمن بيئة منظمة تعتمد على العدالة والاحترافية.
             </p>
-            <div style="display: flex; gap: 15px; justify-content: center;">
-                <a href="https://discord.gg/2e8GUmVJBR" class="roblox-btn" style="max-width: 250px; padding: 12px; margin: 0;">ديسكورد</a>
-            </div>
+            <a href="https://discord.gg/2e8GUmVJBR" class="roblox-btn" style="max-width: 200px; padding: 10px; font-size: 0.9rem;">
+                <i class="fab fa-discord"></i> ديسكورد
+            </a>
         </div>
     </section>
 
     <section id="maps" class="section">
-        <h2 style="text-align:center; margin-bottom:30px; font-size: 2rem; color: var(--accent-cyan);">مابات عرب سيتي</h2>
+        <h2 style="text-align:center; margin-bottom:30px; color: var(--accent-cyan);">مابات عرب سيتي</h2>
         
         <div class="acc-item">
-            <button class="acc-btn" onclick="toggleAcc('fightDesc', 'a1')">ماب فايتات عرب سيتي <i class="fas fa-chevron-down" id="a1"></i></button>
-            <div id="fightDesc" class="acc-content">
-                <p>فايتات عرب سيتي بنظام OTSM هو ماب قتالي تنافسي داخل منصة Roblox مصمم ليحاكي أجواء مدينة عربية حديثة تجمع بين الشوارع الواسعة والأحياء الضيقة والساحات المفتوحة... يركز الماب على أسلوب PvP حيث يعتمد على المهارة وسرعة رد الفعل.</p>
+            <button class="acc-btn" onclick="toggleAcc('m1')">ماب فايتات عرب سيتي <i class="fas fa-chevron-down"></i></button>
+            <div id="m1" class="acc-content">
+                <p>فايتات عرب سيتي بنظام OTSM هو ماب قتالي تنافسي داخل منصة Roblox مصمم ليحاكي أجواء مدينة عربية حديثة تجمع بين الشوارع الواسعة والأحياء الضيقة والساحات المفتوحة...</p>
             </div>
         </div>
 
         <div class="acc-item">
-            <button class="acc-btn" onclick="toggleAcc('lifeDesc', 'a2')">ماب الحياة الواقعية <i class="fas fa-chevron-down" id="a2"></i></button>
-            <div id="lifeDesc" class="acc-content" style="text-align:center;">
-                <h3 style="color: var(--accent-cyan);">قريباً يتم افتتاح المآب</h3>
+            <button class="acc-btn" onclick="toggleAcc('m2')">ماب الحياة الواقعية <i class="fas fa-chevron-down"></i></button>
+            <div id="m2" class="acc-content" style="text-align:center;">
+                <h3 style="color: var(--accent-cyan); padding: 10px;">قريباً يتم افتتاح المآب</h3>
             </div>
         </div>
 
         <div class="acc-item">
-            <button class="acc-btn" onclick="toggleAcc('photoDesc', 'a3')">صور ماب الفايتات <i class="fas fa-chevron-down" id="a3"></i></button>
-            <div id="photoDesc" class="acc-content">
-                <div class="img-stack">
-                    <img src="https://raw.githubusercontent.com/sultan8100/ARABCITY/main/IMG_0236.jpg" alt="1">
-                    <img src="https://raw.githubusercontent.com/sultan8100/ARABCITY/main/IMG_0237.jpg" alt="2">
-                    <img src="https://raw.githubusercontent.com/sultan8100/ARABCITY/main/IMG_0238.jpg" alt="3">
-                    <img src="https://raw.githubusercontent.com/sultan8100/ARABCITY/main/IMG_0239.jpg" alt="4">
+            <button class="acc-btn" onclick="toggleAcc('m3')">صور ماب الفايتات <i class="fas fa-chevron-down"></i></button>
+            <div id="m3" class="acc-content">
+                <div class="img-container">
+                    <img src="https://raw.githubusercontent.com/sultan8100/ARABCITY/main/IMG_0236.jpg" alt="اللوبي">
+                    <img src="https://raw.githubusercontent.com/sultan8100/ARABCITY/main/IMG_0237.jpg" alt="التدريب">
+                    <img src="https://raw.githubusercontent.com/sultan8100/ARABCITY/main/IMG_0238.jpg" alt="الهيومن لاب">
+                    <img src="https://raw.githubusercontent.com/sultan8100/ARABCITY/main/IMG_0239.jpg" alt="الغرب">
                 </div>
             </div>
         </div>
 
         <a href="https://www.roblox.com/share?code=bf6a6956c7cfc741bcd01a2e3a6ed598&type=ExperienceDetails&stamp=1772229946874" target="_blank" class="roblox-btn">
-            <i class="fas fa-play"></i> عيش تجربة فريدة من نوعها | انقر للدخول على ماب الفايتات
+            <i class="fas fa-gamepad"></i> عيش تجربة فريدة | الدخول للماب
         </a>
     </section>
 
     <section id="rules" class="section">
-        <h2 style="text-align:center; margin-bottom:30px; font-size: 2rem;">قوانين السيرفر</h2>
-        <div class="acc-item">
-            <button class="acc-btn" onclick="toggleAcc('r1Content', 'r1')">قوانين السيرفر العامة <i class="fas fa-chevron-down" id="r1"></i></button>
-            <div id="r1Content" class="acc-content">
-                <p>1 - يُمنع القذف أو السب بكل أشكاله.<br>2 - يُمنع النشر لأي سيرفر.<br>3 - الاحترام واجب.</p>
-            </div>
+        <h2 style="text-align:center; margin-bottom:30px;">قوانين السيرفر</h2>
+        <div class="card">
+            <ul style="list-style: none;">
+                <li style="padding: 10px; border-bottom: 1px solid rgba(255,255,255,0.1);">1 - يُمنع القذف أو السب بكل أشكاله.</li>
+                <li style="padding: 10px; border-bottom: 1px solid rgba(255,255,255,0.1);">2 - يُمنع النشر لأي سيرفر أو حساب.</li>
+                <li style="padding: 10px; border-bottom: 1px solid rgba(255,255,255,0.1);">3 - الاحترام واجب بين الجميع.</li>
+                <li style="padding: 10px; border-bottom: 1px solid rgba(255,255,255,0.1);">4 - يُمنع الدخول في مواضيع مخلة بالآداب.</li>
+            </ul>
         </div>
     </section>
 
@@ -155,14 +148,20 @@
             document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
             document.querySelectorAll('.nav-links li').forEach(l => l.classList.remove('active'));
             document.getElementById(id).classList.add('active');
-            document.getElementById('li-' + id).classList.add('active');
+            document.getElementById('nav-' + id).classList.add('active');
+            window.scrollTo(0,0);
         }
 
-        function toggleAcc(contentId, arrowId) {
-            const content = document.getElementById(contentId);
-            const arrow = document.getElementById(arrowId);
+        function toggleAcc(id) {
+            const content = document.getElementById(id);
+            const allContent = document.querySelectorAll('.acc-content');
+            
+            // إغلاق الآخرين لضمان عدم تداخل الصور
+            allContent.forEach(item => {
+                if(item.id !== id) item.classList.remove('show');
+            });
+            
             content.classList.toggle('show');
-            arrow.style.transform = content.classList.contains('show') ? "rotate(180deg)" : "rotate(0deg)";
         }
     </script>
 </body>
