@@ -1,281 +1,86 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Arab City - عرب سيتي</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Arab City - عرب سيتي</title>
 
-    <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body {
-            font-family: system-ui, "Segoe UI", sans-serif;
-            background: radial-gradient(circle at top, #1f2937, #020617);
-            color: #f9fafb;
-            line-height: 1.7;
-        }
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #1f2937, #020617);
+      color: #f9fafb;
+      line-height: 1.7;
+    }
 
-        /* الهيدر */
-        .main-header {
-            position: sticky; top: 0; z-index: 100;
-            background: rgba(15, 23, 42, 0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(148, 163, 184, 0.3);
-            display: flex; align-items: center; justify-content: space-between;
-            padding: 0.75rem 5vw;
-        }
-        .logo-area { display: flex; align-items: center; gap: 0.75rem; }
-        .logo { width: 52px; height: 52px; border-radius: 12px; border: 2px solid #22c55e; object-fit: cover; }
-        .logo-text h1 { font-size: 1.2rem; font-weight: 700; }
-        .logo-text p { font-size: 0.8rem; color: #9ca3af; }
-
-        .main-nav { display: flex; gap: 0.75rem; flex-wrap: wrap; }
-        .main-nav a {
-            color: #e5e7eb; text-decoration: none;
-            padding: 0.35rem 0.7rem; border-radius: 999px;
-            transition: 0.2s; border: 1px solid transparent;
-        }
-        .main-nav a:hover { border-color: #22c55e; background: rgba(34,197,94,0.1); }
-
-        /* الهيرو */
-        .hero {
-            position: relative;
-            height: 100vh;
-            background: url('bg.jpg') center/cover no-repeat;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .hero-overlay {
-            background: rgba(0, 0, 0, 0.45);
-            padding: 2rem;
-            border-radius: 20px;
-            text-align: center;
-            backdrop-filter: blur(3px);
-        }
-        .hero-buttons { display: flex; justify-content: center; gap: 0.75rem; flex-wrap: wrap; }
-
-        /* أزرار */
-        .btn {
-            display: inline-flex; align-items: center; gap: 0.4rem;
-            padding: 0.55rem 1.1rem; border-radius: 999px;
-            text-decoration: none; font-size: 0.9rem; transition: 0.2s;
-        }
-        .btn img { width: 18px; height: 18px; }
-        .discord { background: #5865f2; color: #fff; }
-        .discord:hover { background: #4752c4; }
-        .x { background: #0f172a; color: #fff; border: 1px solid #475569; }
-        .x:hover { background: #020617; }
-
-        /* الكروت */
-        .section { padding: 3.5rem 5vw; max-width: 1100px; margin: auto; }
-        .section h2 {
-            font-size: 1.6rem; margin-bottom: 1.5rem;
-            border-right: 4px solid #22c55e; padding-right: 0.75rem;
-        }
-        .card-section {
-            background: rgba(15,23,42,0.7);
-            border-radius: 24px; padding: 2rem;
-            border: 1px solid rgba(148,163,184,0.3);
-        }
-        .card-grid {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(230px,1fr));
-            gap: 1.25rem;
-        }
-        .card {
-            background: rgba(15,23,42,0.9);
-            border-radius: 18px; padding: 1.25rem;
-            border: 1px solid rgba(148,163,184,0.3);
-            text-decoration: none;
-            color: #fff;
-            transition: 0.2s;
-        }
-        .card:hover { border-color: #22c55e; transform: translateY(-3px); }
-        .card.center { text-align: center; }
-
-        /* المؤسسين */
-        .founder-grid {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(210px,1fr));
-            gap: 1.5rem; margin-top: 1rem;
-        }
-        .founder-card {
-            text-align: center; background: rgba(15,23,42,0.9);
-            border-radius: 18px; padding: 1.25rem;
-            border: 1px solid rgba(148,163,184,0.3);
-        }
-        .founder-card img {
-            width: 90px; height: 90px; border-radius: 999px;
-            border: 2px solid #22c55e; object-fit: cover; margin-bottom: 0.75rem;
-        }
-
-        /* الفوتر */
-        .main-footer {
-            text-align: center; padding: 1.5rem; margin-top: 2rem;
-            color: #9ca3af; font-size: 0.8rem;
-            border-top: 1px solid rgba(148,163,184,0.3);
-        }
-    </style>
+    .main-header {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(15, 23, 42, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(148,163,184,0.3);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0.8rem 2rem;
+    }
+    .logo { height: 40px; }
+    .founders { display: flex; flex-wrap: wrap; gap: 1.5rem; margin-top: 2rem; }
+    .founder-card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(148,163,184,0.2);
+      border-radius: 10px;
+      padding: 1rem;
+      width: 220px;
+      text-align: center;
+    }
+    .founder-card img { width: 100px; height: 100px; border-radius: 50%; margin-bottom: 0.5rem; }
+    .founder-card h3 { margin-bottom: 0.5rem; }
+  </style>
 </head>
-
 <body>
 
-    <!-- الهيدر -->
-    <header class="main-header">
-        <div class="logo-area">
-            <img src="logo.png" class="logo">
-            <div class="logo-text">
-                <h1>Arab City</h1>
-                <p>سيرفر عرب سيتي - حياة واقعية</p>
-            </div>
+  <header class="main-header">
+    <img src="logo.PNG" class="logo">
+    <h1>Arab City - عرب سيتي</h1>
+  </header>
+
+  <main>
+    <section>
+      <h2>المؤسسون</h2>
+      <div class="founders">
+
+        <div class="founder-card">
+          <img src="doki.jpg">
+          <h3>دوكي</h3>
+          <p>مؤسس وصانع السيرفر الأول ويمتلك منصب أونر ومبرمج بالماب</p>
         </div>
 
-        <nav class="main-nav">
-            <a href="#home">الرئيسية</a>
-            <a href="#rules">القوانين</a>
-            <a href="#store">المتجر</a>
-            <a href="#jobs">الوظائف</a>
-            <a href="#servers">السيرفرات</a>
-            <a href="#founders">المؤسسين</a>
-            <a href="#activation">التفعيل</a>
-        </nav>
-    </header>
-
-    <!-- الرئيسية -->
-    <section id="home" class="hero">
-        <div class="hero-overlay">
-            <h2>Arab City - عرب سيتي</h2>
-            <p>سيرفر حياة واقعية يقدم تجربة ممتعة واحترافية لجميع اللاعبين.</p>
-
-            <div class="hero-buttons">
-                <a href="https://discord.gg/arabcity" class="btn discord">
-                    <img src="https://cdn-icons-png.flaticon.com/512/2111/2111370.png">
-                    دخول ديسكورد
-                </a>
-
-                <a href="https://youtube.com/@dokyyiii?si=IIYM88PpVAu0l_8B" class="btn x">
-                    <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png">
-                    حساب يوتيوب
-                </a>
-            </div>
+        <div class="founder-card">
+          <img src="etchai.jpg">
+          <h3>اتشاي</h3>
+          <p>مسؤول إداري محترف ذو خبرة عالية يمتلك منصب كو فاوندر</p>
         </div>
+
+        <div class="founder-card">
+          <img src="sultan.jpg">
+          <h3>سلطان</h3>
+          <p>مسؤول إداري محترف ذو خبرة عالية ويمتلك منصب كو فاوندر ومسؤول البرمجة للديسكورد</p>
+        </div>
+
+        <div class="founder-card">
+          <img src="younes.jpg">
+          <h3>يونس</h3>
+          <p>مبرمج الماب وفاوندر</p>
+        </div>
+
+        <div class="founder-card">
+          <img src="osama.jpg">
+          <h3>أسامة</h3>
+          <p>فاوندر ومنظم إداري محترف</p>
+        </div>
+
+      </div>
     </section>
-
-    <!-- التفعيل -->
-    <section id="activation" class="section card-section">
-        <h2>التفعيل</h2>
-        <p class="section-note">يجب الموافقة على الشروط قبل دخول السيرفر.</p>
-
-        <div class="card-grid">
-            <div class="card">
-                <h3>الشروط العامة</h3>
-                <ul>
-                    <li>العمر المسموح 13 سنة فما فوق.</li>
-                    <li>ممنوع استخدام شخصية غير المتجر.</li>
-                    <li>ممنوع الأسماء المخالفة أو الرموز.</li>
-                    <li>الدخول من جهازك فقط.</li>
-                    <li>مسموح شخصيتين فقط.</li>
-                </ul>
-            </div>
-
-            <div class="card">
-                <h3>ملاحظات</h3>
-                <p>بعد الموافقة سيتم توجيهك لقنوات التفعيل داخل الديسكورد.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- القوانين -->
-    <section id="rules" class="section">
-        <h2>القوانين</h2>
-
-        <div class="card">
-            <h3>NLR - الحياة الجديدة</h3>
-            <p>عند الإغماء لا يمكنك الكلام أو الحركة حتى الإنعاش.</p>
-        </div>
-
-        <div class="card">
-            <h3>PowerGaming</h3>
-            <p>ممنوع القيام بأشياء غير منطقية أو غير واقعية.</p>
-        </div>
-
-        <div class="card">
-            <h3>NVL - عدم تقدير الحياة</h3>
-            <p>يجب الخوف على حياتك عند التهديد.</p>
-        </div>
-
-        <div class="card">
-            <h3>Metagaming</h3>
-            <p>ممنوع استخدام معلومات خارج اللعبة داخل الرول بلاي.</p>
-        </div>
-    </section>
-
-    <!-- المتجر -->
-    <section id="store" class="section card-section">
-        <h2>المتجر</h2>
-        <div class="card center">
-            <h3>قريباً...</h3>
-            <p>متجر عرب سيتي سيتم إطلاقه قريباً.</p>
-        </div>
-    </section>
-
-    <!-- الوظائف -->
-    <section id="jobs" class="section card-section">
-        <h2>الوظائف</h2>
-
-        <div class="card-grid">
-            <div class="card"><h3>الشرطة</h3><p>مغلق حالياً</p></div>
-            <div class="card"><h3>الصحة</h3><p>مغلق حالياً</p></div>
-            <div class="card"><h3>وزارة العدل</h3><p>مغلق حالياً</p></div>
-        </div>
-    </section>
-
-    <!-- السيرفرات -->
-    <section id="servers" class="section card-section">
-        <h2>السيرفرات</h2>
-
-        <div class="card-grid">
-            <a href="https://www.roblox.com/share?code=bf6a6956c7cfc741bcd01a2e3a6ed598&type=ExperienceDetails&stamp=1772461699669" class="card">
-                <h3>سيرفر الفايتات</h3>
-                <p>اضغط للدخول</p>
-            </a>
-
-            <a href="https://discord.gg/dFqf6w66U2" class="card">
-                <h3>سيرفر العصابات RP</h3>
-                <p>اضغط للدخول</p>
-            </a>
-        </div>
-    </section>
-
-    <!-- المؤسسين -->
-    <section id="founders" class="section founders">
-        <h2>المؤسسين</h2>
-
-        <div class="founder-grid">
-
-            <div class="founder-card">
-                <img src="doki.webp">
-                <h3>دوكي</h3>
-                <p>Co‑Founder</p>
-            </div>
-
-            <div class="founder-card">
-                <img src="etchai.webp">
-                <h3>اتشاي</h3>
-                <p>Co‑Founder</p>
-            </div>
-
-            <div class="founder-card">
-                <img src="sultan.webp">
-                <h3>سلطان</h3>
-                <p>Co‑Founder و مسؤول البرمجة</p>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- الفوتر -->
-    <footer class="main-footer">
-        © عرب سيتي - Arab City RP
-    </footer>
+  </main>
 
 </body>
 </html>
