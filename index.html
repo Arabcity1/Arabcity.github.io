@@ -1,86 +1,185 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Arab City - عرب سيتي</title>
-
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: system-ui, "Segoe UI", sans-serif;
-      background: radial-gradient(circle at top, #1f2937, #020617);
-      color: #f9fafb;
-      line-height: 1.7;
-    }
-
-    .main-header {
-      position: sticky; top: 0; z-index: 100;
-      background: rgba(15, 23, 42, 0.95);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid rgba(148,163,184,0.3);
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 0.8rem 2rem;
-    }
-    .logo { height: 40px; }
-    .founders { display: flex; flex-wrap: wrap; gap: 1.5rem; margin-top: 2rem; }
-    .founder-card {
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(148,163,184,0.2);
-      border-radius: 10px;
-      padding: 1rem;
-      width: 220px;
-      text-align: center;
-    }
-    .founder-card img { width: 100px; height: 100px; border-radius: 50%; margin-bottom: 0.5rem; }
-    .founder-card h3 { margin-bottom: 0.5rem; }
-  </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Arab City - عرب سيتي</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="logo.PNG" />
 </head>
 <body>
 
-  <header class="main-header">
-    <img src="logo.PNG" class="logo">
-    <h1>Arab City - عرب سيتي</h1>
-  </header>
-
-  <main>
-    <section>
-      <h2>المؤسسون</h2>
-      <div class="founders">
-
-        <div class="founder-card">
-          <img src="doki.jpg">
-          <h3>دوكي</h3>
-          <p>مؤسس وصانع السيرفر الأول ويمتلك منصب أونر ومبرمج بالماب</p>
+    <!-- الهيدر + الشعار + القائمة -->
+    <header class="main-header">
+        <div class="logo-area">
+            <img src="logo.PNG" alt="Arab City Logo" class="logo">
+            <div class="logo-text">
+                <h1>Arab City</h1>
+                <p>سيرفر عرب سيتي - حياة واقعية</p>
+            </div>
         </div>
 
-        <div class="founder-card">
-          <img src="etchai.jpg">
-          <h3>اتشاي</h3>
-          <p>مسؤول إداري محترف ذو خبرة عالية يمتلك منصب كو فاوندر</p>
-        </div>
+        <nav class="main-nav">
+            <a href="#home">الرئيسية</a>
+            <a href="#rules">القوانين</a>
+            <a href="#store">المتجر</a>
+            <a href="#jobs">تقديم وظائف</a>
+            <a href="#servers">السيرفرات</a>
+            <a href="#founders">المؤسسين</a>
+            <a href="#activation">التفعيل</a>
+        </nav>
+    </header>
 
-        <div class="founder-card">
-          <img src="sultan.jpg">
-          <h3>سلطان</h3>
-          <p>مسؤول إداري محترف ذو خبرة عالية ويمتلك منصب كو فاوندر ومسؤول البرمجة للديسكورد</p>
+    <!-- الرئيسية -->
+    <section id="home" class="section hero">
+        <div class="hero-content">
+            <img src="logo.PNG" alt="Arab City" class="hero-logo">
+            <h2>Arab City - عرب سيتي</h2>
+            <p>
+                سيرفر عرب سيتي هو مجتمع حياة واقعية متكامل يهدف لتقديم تجربة ممتعة، احترافية وعادلة
+                لكل اللاعبين، مع تركيز كبير على الرول بلاي والجودة.
+            </p>
+            <div class="hero-buttons">
+                <a href="https://discord.gg/your-discord" class="btn discord">
+                    <img src="https://cdn-icons-png.flaticon.com/512/2111/2111370.png" alt="">
+                    دخول ديسكورد عرب سيتي
+                </a>
+                <a href="https://x.com/your-x-account" class="btn x">
+                    <img src="https://abs.twimg.com/favicons/twitter-pip.2.ico" alt="">
+                    حسابنا في X
+                </a>
+            </div>
         </div>
-
-        <div class="founder-card">
-          <img src="younes.jpg">
-          <h3>يونس</h3>
-          <p>مبرمج الماب وفاوندر</p>
-        </div>
-
-        <div class="founder-card">
-          <img src="osama.jpg">
-          <h3>أسامة</h3>
-          <p>فاوندر ومنظم إداري محترف</p>
-        </div>
-
-      </div>
     </section>
-  </main>
+
+    <!-- التفعيل -->
+    <section id="activation" class="section card-section">
+        <h2>التفعيل</h2>
+        <p class="section-note">
+            قبل دخول سيرفر عرب سيتي، يجب الموافقة على الشروط العامة التالية:
+        </p>
+
+        <div class="card-grid">
+            <div class="card">
+                <h3>الشروط العامة</h3>
+                <ul>
+                    <li>العمر المسموح لدخول السيرفر: 13 سنة فما فوق.</li>
+                    <li>ممنوع استخدام أي شخصية افتراضية إلا من خلال المتجر فقط.</li>
+                    <li>ممنوع كتابة اسمك برموز أو أسماء شخصيات مشهورة.</li>
+                    <li>يمنع الدخول من أجهزة غير جهازك الشخصي.</li>
+                    <li>يحق لك امتلاك شخصيتين فقط داخل عرب سيتي.</li>
+                </ul>
+                <div class="agree-buttons">
+                    <button class="btn success">موافق على الشروط</button>
+                    <button class="btn danger">غير موافق</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>ملاحظات التفعيل</h3>
+                <p>
+                    بعد الموافقة على الشروط، سيتم توجيهك لقنوات التقديم والتفعيل داخل ديسكورد
+                    سيرفر عرب سيتي، والتأكد من بياناتك قبل منحك صلاحية الدخول للسيرفر.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- القوانين -->
+    <section id="rules" class="section">
+        <h2>قوانين السيرفر</h2>
+        <div class="rules-group">
+            <h3>قوانين الحياة الجديدة - NLR</h3>
+            <p>في حال إغمائك بشكل كامل لا يمكنك الكلام أو الحركة...</p>
+        </div>
+        <div class="rules-group">
+            <h3>الباور جيمينغ - PowerGaming</h3>
+            <p>يمنع استغلال أي شيء غير منطقي أو غير موجود في اللعبة...</p>
+        </div>
+        <div class="rules-group">
+            <h3>الخوف على الحياة - NVL</h3>
+            <p>يجب أن تخاف على حياة شخصيتك بشكل واقعي عند التعرض للتهديد...</p>
+        </div>
+        <div class="rules-group">
+            <h3>الميتا جيمينغ - Metagaming</h3>
+            <p>يمنع استخدام أي معلومات من خارج اللعبة داخل الرول بلاي...</p>
+        </div>
+        <div class="rules-group">
+            <h3>القتل العشوائي - RDM</h3>
+            <p>يمنع قتل اللاعبين بدون سبب أو تهديد أو عداء واضح...</p>
+        </div>
+        <div class="rules-group">
+            <h3>قانون تقدير الحياة - Arab City</h3>
+            <p>يجب الحفاظ على حياة شخصيتك وحياة الآخرين...</p>
+        </div>
+    </section>
+
+    <!-- المتجر -->
+    <section id="store" class="section card-section">
+        <h2>المتجر</h2>
+        <div class="card center">
+            <h3>قريباً جداً...</h3>
+            <p>نجهز لكم متجر عرب سيتي بتجربة مميزة وحصرية داخل السيرفر.</p>
+            <span class="badge">COMING SOON</span>
+        </div>
+    </section>
+
+    <!-- تقديم وظائف -->
+    <section id="jobs" class="section card-section">
+        <h2>تقديم وظائف</h2>
+        <div class="card-grid">
+            <div class="card"><h3>تقديم الشرطة</h3><p>التقديمات حالياً: <strong>مغلقة</strong></p></div>
+            <div class="card"><h3>تقديم الصحة</h3><p>التقديمات حالياً: <strong>مغلقة</strong></p></div>
+            <div class="card"><h3>تقديم وزارة العدل</h3><p>التقديمات حالياً: <strong>مغلقة</strong></p></div>
+        </div>
+    </section>
+
+    <!-- السيرفرات -->
+    <section id="servers" class="section card-section">
+        <h2>سيرفرات عرب سيتي</h2>
+        <div class="card-grid">
+            <a href="https://discord.gg/your-fights" class="card link-card">
+                <h3>سيرفر الفايتات</h3>
+                <p>اضغط للدخول إلى سيرفر الفايتات الخاص بعرب سيتي.</p>
+            </a>
+            <a href="https://discord.gg/your-rp" class="card link-card">
+                <h3>سيرفر العصابات RP</h3>
+                <p>تجربة رول بلاي احترافية لعصابات عرب سيتي.</p>
+            </a>
+        </div>
+    </section>
+
+    <!-- المؤسسين -->
+    <section id="founders" class="section founders">
+        <h2>المؤسسين</h2>
+        <div class="founder-grid">
+            <div class="founder-card">
+                <h3>دوكي</h3>
+                <p>مؤسس وصانع السيرفر الأول ويمتلك منصب أونر ومبرمج بالماب</p>
+            </div>
+            <div class="founder-card">
+                <h3>اتشاي</h3>
+                <p>مسؤول إداري محترف ذو خبرة عالية يمتلك منصب كو فاوندر</p>
+            </div>
+            <div class="founder-card">
+                <h3>سلطان</h3>
+                <p>مسؤول إداري محترف ذو خبرة عالية ويمتلك منصب كو فاوندر ومسؤول البرمجة للديسكورد</p>
+            </div>
+            <div class="founder-card">
+                <h3>يونس</h3>
+                <p>مبرمج الماب وفاوندر</p>
+            </div>
+            <div class="founder-card">
+                <h3>أسامة</h3>
+                <p>فاوندر ومنظم إداري محترف</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- الفوتر -->
+    <footer class="main-footer">
+        <p>© عرب سيتي - Arab City RP Server</p>
+    </footer>
 
 </body>
 </html>
